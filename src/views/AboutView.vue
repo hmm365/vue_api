@@ -1,5 +1,25 @@
+<!-- @format -->
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <div>
+        <HeaderCont />
+        <TitleCont title="about" desc="referce api" />
+        <ContactCont />
+        <FooterCont />
+    </div>
 </template>
+
+<script>
+import HeaderCont from '@/components/HeaderCont.vue';
+import FooterCont from '@/components/FooterCont.vue';
+import TitleCont from '@/components/TitleCont.vue';
+import ContactCont from '@/components/ContactCont.vue';
+export default {
+    components: {
+        HeaderCont,
+        FooterCont,
+        TitleCont,
+        ContactCont,
+    },
+};
+</script>
