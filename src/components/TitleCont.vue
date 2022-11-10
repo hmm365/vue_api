@@ -2,8 +2,8 @@
     <section class="cont__title">
         <div class="container">
             <h1>
-                <strong>{{ title }}</strong>
-                <em>{{ desc }}</em>
+                <strong>{{ name1 }}</strong>
+                <em>{{ name2 }}</em>
             </h1>
         </div>
     </section>
@@ -12,8 +12,8 @@
 <script>
 export default {
     props: {
-        title: String,
-        desc: String,
+        name1: String,
+        name2: String,
     },
 };
 </script>

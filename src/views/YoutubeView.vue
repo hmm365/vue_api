@@ -2,7 +2,7 @@
 <template>
     <div>
         <HeaderCont />
-        <TitleCont title="Youtube" desc="referce api" />
+        <TitleCont name1="Youtube" name2="referce api" />
         <FooterCont />
         <ContactCont />
     </div>

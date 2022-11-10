@@ -3,7 +3,7 @@
 <template>
     <div>
         <HeaderCont />
-        <TitleCont title="about" desc="referce api" />
+        <TitleCont name1="about" name2="referce api" />
         <ContactCont />
         <FooterCont />
     </div>

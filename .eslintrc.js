@@ -20,7 +20,7 @@ module.exports = {
                 trailingComma: 'all',
                 printWidth: 160,
                 bracketSpacing: true,
-                arrowParens: 'avoid',
+                arrowParens: 'always',
             },
         ],
     },
