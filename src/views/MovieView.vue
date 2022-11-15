@@ -10,15 +10,17 @@
                 <h2>Best Movie</h2>
                 <div class="movie__inner">
                     <Swiper
+                        :slidesPerView="4"
                         :initialSlide="5"
                         :autoplay="{
                             delay: 2500,
                             disableOnInteraction: false,
                         }"
+                        :loop="true"
+                        :loopFillGroupWithBlank="true"
                         :effect="'coverflow'"
                         :grabCursor="true"
                         :centeredSlides="true"
-                        :slidesPerView="'auto'"
                         :coverflowEffect="{
                             rotate: 50,
                             stretch: 0,
@@ -26,12 +28,12 @@
                             modifier: 1,
                             slideShadows: false,
                         }"
-                        :pagination="true"
+                        :pagination="false"
                         :modules="modules"
                         class="mySwiper"
                     >
                         <Swiper-slide v-for="slider in sliders" :key="slider.id">
-                            <figure className="card">
+                            <figure class="card">
                                 <a :href="`https://www.themoviedb.org/movie/${slider.id}`">
                                     <img :src="`https://image.tmdb.org/t/p/w500/${slider.poster_path}`" :alt="`${slider.original_title} poster`" />
                                 </a>
@@ -44,13 +46,20 @@
 
         <div class="movie__search">
             <div class="container">
-                <form @submit.prevent="SearchMovies()">
-                    <input type="search" id="search" placeholder="검색하세요" v-model="search" />
-                    <button type="submit">검색</button>
-                </form>
+                <input type="search" id="search" placeholder="검색하세요" v-model="inputSearch" v-on:keyup.enter="inputTest()" />
+                <button type="button" v-on:click="inputTest()">검색</button>
             </div>
         </div>
         <!-- movie__search -->
+
+        <div class="movie__btns">
+            <div class="container">
+                <button type="button" class="btn" v-for="movieTag in movieTags" :key="movieTag" v-on:click="clickTest(movieTag)">
+                    {{ movieTag }}
+                </button>
+            </div>
+        </div>
+        <!--  movie__btns-->
 
         <section class="cont__movie">
             <div class="container">
@@ -101,8 +110,20 @@ export default {
     setup() {
         const movies = ref([]);
         const sliders = ref([]);
-        const search = ref(['마블']);
 
+        const inputSearch = ref([]);
+        const search = ref(['마블']);
+        const movieTags = ['마블', '올드보이', '타짜', '테이큰'];
+
+        const clickTest = (value) => {
+            search.value = value;
+            inputSearch.value = '';
+            SearchMovies();
+        };
+        const inputTest = () => {
+            search.value = inputSearch.value;
+            SearchMovies();
+        };
         const SearchMovies = async () => {
             await fetch(
                 `https://api.themoviedb.org/3/search/movie?api_key=891244fed71f3e78a463eb2a1801b383&language=ko-kr&page=1&include_adult=false&query=${search.value}`,
@@ -130,8 +151,12 @@ export default {
             movies,
             sliders,
             search,
+            inputSearch,
+            movieTags,
             SearchMovies,
             TopMovies,
+            clickTest,
+            inputTest,
         };
     },
 };
@@ -144,7 +169,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         align-content: center;
-        justify-content: space-around;
+        justify-content: space-between;
         h2 {
             font-size: 30px;
             color: var(--black);
@@ -233,6 +258,8 @@ export default {
         font-family: var(--font-kor2);
         cursor: pointer;
         z-index: 100;
+        background: var(--black);
+        color: var(--white);
     }
 }
 
@@ -267,16 +294,34 @@ export default {
             border-radius: 10px;
 
             .card {
+                a {
+                    width: 300px;
+                    height: 450px;
+                }
                 img {
                     display: block;
                     border-radius: 10px;
                     width: 300px;
                     height: 450px;
-
                     object-fit: cover;
                 }
             }
         }
+    }
+}
+
+.movie__btns {
+    margin-bottom: 20px;
+    .btn {
+        background: var(--bg-dark);
+        color: var(--white);
+        border: 0;
+        margin-right: 20px;
+        font-family: var(--font-kor2);
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
     }
 }
 </style>
