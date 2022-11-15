@@ -10,10 +10,6 @@
                 <div class="unsplash__inner">
                     <Swiper
                         :initialSlide="5"
-                        :autoplay="{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        }"
                         :loop="true"
                         :loopFillGroupWithBlank="true"
                         :effect="'cards'"
@@ -79,9 +75,9 @@ import { ref } from 'vue';
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import { EffectCards, Pagination, Autoplay } from 'swiper';
+import 'swiper/css/effect-cards';
+
+import { EffectCards, Autoplay } from 'swiper';
 
 export default {
     components: {
@@ -139,7 +135,7 @@ export default {
         RandomSplashes();
         SliderSplashes();
         return {
-            modules: [EffectCards, Pagination, Autoplay],
+            modules: [EffectCards, Autoplay],
             splashes,
             search,
             sliders,
@@ -191,10 +187,8 @@ export default {
     }
 
     .swiper {
-        width: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        margin-bottom: 10px;
+        width: 300px;
+        height: 450px;
         .swiper-slide {
             background-position: center;
             background-size: cover;
