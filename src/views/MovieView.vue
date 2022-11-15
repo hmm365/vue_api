@@ -124,6 +124,7 @@ export default {
             search.value = inputSearch.value;
             SearchMovies();
         };
+
         const SearchMovies = async () => {
             await fetch(
                 `https://api.themoviedb.org/3/search/movie?api_key=891244fed71f3e78a463eb2a1801b383&language=ko-kr&page=1&include_adult=false&query=${search.value}`,
