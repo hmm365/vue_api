@@ -68,7 +68,7 @@ export default {
     margin-bottom: 250px;
     h2 {
         font-family: var(--font-kor2);
-        color: var(--blakc);
+        color: var(--black);
         width: 60%;
         font-size: 20px;
         font-weight: 400;
@@ -76,7 +76,7 @@ export default {
     }
     p {
         font-family: var(--font-kor2);
-        color: var(--blakc);
+        color: var(--black);
         width: 60%;
         font-size: 20px;
         font-weight: 400;
@@ -96,14 +96,14 @@ export default {
         width: 40%;
         h2 {
             font-family: var(--font-kor2);
-            color: var(--blakc);
+            color: var(--black);
             font-size: 20px;
             font-weight: 400;
             margin-bottom: 30px;
         }
         p {
             font-family: var(--font-kor2);
-            color: var(--blakc);
+            color: var(--black);
             font-size: 20px;
             font-weight: 400;
             margin-bottom: 20px;
@@ -124,14 +124,14 @@ export default {
         width: 40%;
         h2 {
             font-family: var(--font-kor2);
-            color: var(--blakc);
+            color: var(--black);
             font-size: 20px;
             font-weight: 400;
             margin-bottom: 30px;
         }
         p {
             font-family: var(--font-kor2);
-            color: var(--blakc);
+            color: var(--black);
             font-size: 20px;
             font-weight: 400;
             margin-bottom: 20px;

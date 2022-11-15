@@ -168,7 +168,7 @@ export default {
 }
 
 .youtube__slider {
-    color: var(--white);
+    color: var(--black);
     h2 {
         font-size: 50px;
         margin-bottom: 20px;

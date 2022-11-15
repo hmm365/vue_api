@@ -9,7 +9,8 @@
                 <h2>Rander images</h2>
                 <div class="unsplash__inner">
                     <Swiper
-                        :initialSlide="5"
+                        :slidesPerView="5"
+                        :initialSlide="3"
                         :autoplay="{
                             delay: 2500,
                             disableOnInteraction: false,
@@ -110,7 +111,7 @@ export default {
         };
 
         const SearchSplashes = () => {
-            fetch(`https://api.unsplash.com/search/photos/?client_id=XNTqM2xvTnEFo9-LRypjJ0rmsasrQOcjWsqV6xl_UB4&query=${search.value}&per_page=5`)
+            fetch(`https://api.unsplash.com/search/photos/?client_id=XNTqM2xvTnEFo9-LRypjJ0rmsasrQOcjWsqV6xl_UB4&query=${search.value}&per_page=30`)
                 .then((response) => response.json())
                 // .then((result) => console.log(result.results))
                 .then((result) => {
@@ -121,7 +122,7 @@ export default {
         };
 
         const RandomSplashes = () => {
-            fetch('https://api.unsplash.com/photos/random?client_id=XNTqM2xvTnEFo9-LRypjJ0rmsasrQOcjWsqV6xl_UB4&query=sea&count=30')
+            fetch('https://api.unsplash.com/photos/random?client_id=XNTqM2xvTnEFo9-LRypjJ0rmsasrQOcjWsqV6xl_UB4&count=30')
                 .then((response) => response.json())
                 // .then((result) => console.log(result))
                 .then((result) => (splashes.value = result))
@@ -136,8 +137,8 @@ export default {
                 .catch((error) => console.log('error', error));
         };
 
-        SearchSplashes();
         RandomSplashes();
+        SliderSplashes();
         return {
             modules: [EffectCards, Pagination, Autoplay],
             splashes,
