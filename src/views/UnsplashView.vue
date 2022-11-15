@@ -9,8 +9,7 @@
                 <h2>Rander images</h2>
                 <div class="unsplash__inner">
                     <Swiper
-                        :slidesPerView="5"
-                        :initialSlide="3"
+                        :initialSlide="5"
                         :autoplay="{
                             delay: 2500,
                             disableOnInteraction: false,
